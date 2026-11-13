@@ -1,0 +1,1140 @@
+{
+  "generatedAt": "2026-11-13 15:18",
+  "items": [
+    {
+      "id": "A1",
+      "group": "sso",
+      "groupName": "기본 SSO",
+      "title": "앱이 학교를 지정(domain_hint) → 학교 A",
+      "info": [
+        [
+          "계정",
+          "student01@school1.joowon.me"
+        ]
+      ],
+      "check": "앱이 학교 도메인을 지정하면 Microsoft 화면 없이 SEN 로그인으로 바로 넘어가는지",
+      "expect": "성공(학교 A)",
+      "result": [
+        "✅ 성공 — student01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student01@school1.joowon.me · domain_hint=school1.joowon.me",
+        "SEN 로그인 화면: student01 입력 + 비밀번호",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/A1.mp4",
+      "poster": "posters/A1.jpg",
+      "duration": 21.5,
+      "recordedAt": "2026-11-13 13:37",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "A3",
+      "group": "sso",
+      "groupName": "기본 SSO",
+      "title": "Teams 웹에서 학교 A 계정 입력",
+      "info": [
+        [
+          "계정",
+          "teacher01@school1.joowon.me"
+        ],
+        [
+          "앱",
+          "Teams 웹"
+        ]
+      ],
+      "check": "Microsoft 로그인 화면에 아이디를 직접 입력하는 흐름",
+      "expect": "Teams 진입(학교 A 계정)",
+      "result": [
+        "✅ Teams 웹 진입 — 계정 표시 teacher01@school1.joowon.me"
+      ],
+      "matched": true,
+      "steps": [
+        "Teams 웹 접속",
+        "Microsoft 로그인 화면에 teacher01@school1.joowon.me 입력",
+        "SEN 로그인 화면: teacher01 입력 + 비밀번호",
+        "로그인 상태 유지: 예",
+        "Teams 웹 화면 진입"
+      ],
+      "via": null,
+      "video": "videos/A3.mp4",
+      "poster": "posters/A3.jpg",
+      "duration": 119.8,
+      "recordedAt": "2026-11-13 14:16",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "B1",
+      "group": "sso",
+      "groupName": "기본 SSO",
+      "title": "겸임교사: 학교 A 로그인 뒤 같은 브라우저로 학교 B",
+      "info": [
+        [
+          "계정",
+          "multi01@school1.joowon.me, multi01@school2.joowon.me"
+        ]
+      ],
+      "check": "두 번째 학교는 SEN 비밀번호를 다시 묻지 않는지",
+      "expect": "둘 다 성공, 학교 B는 비밀번호 입력 없음",
+      "result": [
+        "학교 A✅ 성공 — multi01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력)",
+        "학교 B✅ 성공 — multi01@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력 없음)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: multi01@school1.joowon.me",
+        "SEN 로그인 화면: multi01 입력 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "앱 로그인 시작: multi01@school2.joowon.me",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/B1.mp4",
+      "poster": "posters/B1.jpg",
+      "duration": 30.8,
+      "recordedAt": "2026-11-13 14:17",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "C7",
+      "group": "sso",
+      "groupName": "기본 SSO",
+      "title": "학교 A의 MFA 필수 계정",
+      "info": [
+        [
+          "계정",
+          "mfa01@school1.joowon.me"
+        ],
+        [
+          "Entra",
+          "사용자별 MFA 적용"
+        ]
+      ],
+      "check": "SEN 2단계 인증 결과(MFA 클레임)로 Entra의 MFA 요구가 충족되는지",
+      "expect": "성공(학교 A), SEN 2단계 인증",
+      "result": [
+        "✅ 성공 — mfa01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력, SEN 2단계 인증)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: mfa01@school1.joowon.me",
+        "SEN 로그인 화면: mfa01 입력 + 비밀번호",
+        "SEN 2단계 인증(인증 앱 6자리)",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/C7.mp4",
+      "poster": "posters/C7.jpg",
+      "duration": 26.6,
+      "recordedAt": "2026-11-13 13:38",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "C8",
+      "group": "sso",
+      "groupName": "기본 SSO",
+      "title": "학교 B의 MFA 필수 계정",
+      "info": [
+        [
+          "계정",
+          "mfa02@school2.joowon.me"
+        ],
+        [
+          "Entra",
+          "사용자별 MFA 적용"
+        ]
+      ],
+      "check": "다른 테넌트에서도 SEN 2단계 인증으로 MFA 요구가 충족되는지",
+      "expect": "성공(학교 B), SEN 2단계 인증",
+      "result": [
+        "✅ 성공 — mfa02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력, SEN 2단계 인증)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: mfa02@school2.joowon.me",
+        "SEN 로그인 화면: mfa02 입력 + 비밀번호",
+        "SEN 2단계 인증(인증 앱 6자리)",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/C8.mp4",
+      "poster": "posters/C8.jpg",
+      "duration": 26.6,
+      "recordedAt": "2026-11-13 14:17",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "F1",
+      "group": "sso",
+      "groupName": "기본 SSO",
+      "title": "앱이 재인증(prompt=login)을 요구할 때",
+      "info": [
+        [
+          "계정",
+          "teacher01@school1.joowon.me"
+        ]
+      ],
+      "check": "재인증 요구가 SEN에 전달되는지(전달되지 않으면 SEN 세션으로 통과)",
+      "expect": "관찰: 비밀번호 입력 없이 통과",
+      "result": [
+        "첫 로그인✅ 성공 — teacher01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력)",
+        "prompt=login✅ 성공 — teacher01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력 없음)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: teacher01@school1.joowon.me",
+        "SEN 로그인 화면: teacher01 입력 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "앱 로그인 시작: teacher01@school1.joowon.me · prompt=login"
+      ],
+      "via": null,
+      "video": "videos/F1.mp4",
+      "poster": "posters/F1.jpg",
+      "duration": 26.8,
+      "recordedAt": "2026-11-13 14:59",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "B2a",
+      "group": "reject",
+      "groupName": "위조·오류 거부",
+      "title": "등록되지 않은 Issuer로 보낸 응답",
+      "info": [
+        [
+          "계정",
+          "badissuer01@school1.joowon.me"
+        ]
+      ],
+      "check": "학교 도메인에 등록되지 않은 Issuer는 Entra가 거부하는지",
+      "expect": "거부(AADSTS50107)",
+      "result": [
+        "⛔ 차단 — AADSTS50107 등록되지 않은 Issuer(페더레이션 영역 없음)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: badissuer01@school1.joowon.me",
+        "SEN 로그인 화면: badissuer01 입력 + 비밀번호",
+        "Microsoft 차단·오류 화면(AADSTS50107)"
+      ],
+      "via": null,
+      "video": "videos/B2a.mp4",
+      "poster": "posters/B2a.jpg",
+      "duration": 22.8,
+      "recordedAt": "2026-11-13 14:32",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "B2b",
+      "group": "reject",
+      "groupName": "위조·오류 거부",
+      "title": "서명이 변조된 응답",
+      "info": [
+        [
+          "계정",
+          "badsig01@school1.joowon.me"
+        ]
+      ],
+      "check": "서명 검증에 실패한 SAML 응답을 거부하는지",
+      "expect": "거부(AADSTS500069)",
+      "result": [
+        "⛔ 차단 — AADSTS500069 SAML 응답 서명 검증 실패"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: badsig01@school1.joowon.me",
+        "SEN 로그인 화면: badsig01 입력 + 비밀번호"
+      ],
+      "via": null,
+      "video": "videos/B2b.mp4",
+      "poster": "posters/B2b.jpg",
+      "duration": 18.3,
+      "recordedAt": "2026-11-13 15:03",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "C1",
+      "group": "reject",
+      "groupName": "위조·오류 거부",
+      "title": "Entra 쪽에 ImmutableID가 없는 계정",
+      "info": [
+        [
+          "계정",
+          "nomap01@school1.joowon.me"
+        ]
+      ],
+      "check": "SEN이 보낸 고유키와 맞는 Entra 사용자가 없으면 거부하는지",
+      "expect": "거부(AADSTS90019)",
+      "result": [
+        "⛔ 차단 — AADSTS90019 ImmutableID로 사용자를 찾지 못함"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: nomap01@school1.joowon.me",
+        "SEN 로그인 화면: nomap01 입력 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "Microsoft 차단·오류 화면(AADSTS90019)"
+      ],
+      "via": null,
+      "video": "videos/C1.mp4",
+      "poster": "posters/C1.jpg",
+      "duration": 25.4,
+      "recordedAt": "2026-11-13 13:49",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R11",
+      "group": "reject",
+      "groupName": "위조·오류 거부",
+      "title": "잘못된 구현: 라우팅 도메인 Issuer로 응답",
+      "info": [
+        [
+          "계정",
+          "teacher01@id.joowon.me"
+        ]
+      ],
+      "check": "통합 아이디로 들어왔을 때 학교 도메인이 아닌 Issuer로 답하면 막히는지",
+      "expect": "거부(AADSTS5000820)",
+      "result": [
+        "⛔ 차단 — AADSTS5000820 Federated Token Validation: Issuer 도메인과 사용자 도메인 불일치"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: teacher01@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 teacher01 + 비밀번호"
+      ],
+      "via": null,
+      "video": "videos/R11.mp4",
+      "poster": "posters/R11.jpg",
+      "duration": 17.7,
+      "recordedAt": "2026-11-13 15:03",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R6",
+      "group": "reject",
+      "groupName": "위조·오류 거부",
+      "title": "라우팅 테넌트를 지정한 앱에 학교 B 학생",
+      "info": [
+        [
+          "계정",
+          "student02@id.joowon.me"
+        ]
+      ],
+      "check": "테넌트가 고정된 앱(라우팅 테넌트)에서는 다른 학교 학생이 거부되는지",
+      "expect": "거부(AADSTS50020)",
+      "result": [
+        "⛔ 차단 — AADSTS50020 이 테넌트에 없는 계정(다른 테넌트 사용자)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student02@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "Microsoft 차단·오류 화면(AADSTS50020)"
+      ],
+      "via": null,
+      "video": "videos/R6.mp4",
+      "poster": "posters/R6.jpg",
+      "duration": 25.8,
+      "recordedAt": "2026-11-13 13:53",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R1",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "통합 아이디 → 학교 B(다른 테넌트)",
+      "info": [
+        [
+          "계정",
+          "student02@id.joowon.me"
+        ]
+      ],
+      "check": "라우팅 테넌트에 페더레이션한 아이디로 시작해도 학교 B 계정으로 로그인되는지",
+      "expect": "성공(학교 B)",
+      "result": [
+        "✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student02@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R1.mp4",
+      "poster": "posters/R1.jpg",
+      "duration": 21.6,
+      "recordedAt": "2026-11-13 14:39",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R2",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "통합 아이디 → 학교 A(같은 테넌트)",
+      "info": [
+        [
+          "계정",
+          "student01@id.joowon.me"
+        ]
+      ],
+      "check": "라우팅 테넌트와 같은 테넌트의 학교 계정으로 로그인되는지",
+      "expect": "성공(학교 A)",
+      "result": [
+        "✅ 성공 — student01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student01@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 student01 + 비밀번호",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R2.mp4",
+      "poster": "posters/R2.jpg",
+      "duration": 21.6,
+      "recordedAt": "2026-11-13 14:40",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R3",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "겸임교사 통합 아이디 → 학교 선택",
+      "info": [
+        [
+          "계정",
+          "multi01@id.joowon.me"
+        ]
+      ],
+      "check": "여러 학교 소속이면 SEN이 학교를 고르게 하는지",
+      "expect": "학교 B 선택 후 성공",
+      "result": [
+        "✅ 성공 — multi01@school2.joowon.me · 토큰 테넌트 학교 B (학교 선택 학교 B, SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: multi01@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 multi01 + 비밀번호",
+        "SEN 학교 선택: 학교 B",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R3.mp4",
+      "poster": "posters/R3.jpg",
+      "duration": 25.4,
+      "recordedAt": "2026-11-13 14:40",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R4",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "Microsoft 로그인 화면에 통합 아이디 직접 입력",
+      "info": [
+        [
+          "계정",
+          "student02@id.joowon.me"
+        ]
+      ],
+      "check": "사용자가 통합 아이디를 직접 입력해도 학교 B로 로그인되는지",
+      "expect": "성공(학교 B)",
+      "result": [
+        "✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student02@id.joowon.me 직접 입력",
+        "Microsoft 로그인 화면에 student02@id.joowon.me 입력",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호"
+      ],
+      "via": null,
+      "video": "videos/R4.mp4",
+      "poster": "posters/R4.jpg",
+      "duration": 22.2,
+      "recordedAt": "2026-11-13 15:04",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R5",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "학교 B 테넌트를 지정한 앱에 통합 아이디",
+      "info": [
+        [
+          "계정",
+          "student02@id.joowon.me"
+        ]
+      ],
+      "check": "SharePoint처럼 테넌트가 고정된 앱에서도 되는지",
+      "expect": "성공(학교 B)",
+      "result": [
+        "✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student02@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R5.mp4",
+      "poster": "posters/R5.jpg",
+      "duration": 23.5,
+      "recordedAt": "2026-11-13 14:44",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R7",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "공용 PC: 앞 학생 세션이 남은 브라우저에서 다른 학생",
+      "info": [
+        [
+          "계정",
+          "student01@school1.joowon.me → student02@id.joowon.me"
+        ]
+      ],
+      "check": "SEN이 입력한 아이디와 세션 사용자가 다르면 다시 로그인시키는지",
+      "expect": "두 번째 학생으로 로그인",
+      "result": [
+        "앞 학생✅ 성공 — student01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력)",
+        "다음 학생✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student01@school1.joowon.me",
+        "SEN 로그인 화면: student01 입력 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "앱 로그인 시작: student02@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R7.mp4",
+      "poster": "posters/R7.jpg",
+      "duration": 33.6,
+      "recordedAt": "2026-11-13 14:45",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R8",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "무음 로그인(prompt=none)",
+      "info": [
+        [
+          "계정",
+          "student02@id.joowon.me"
+        ]
+      ],
+      "check": "통합 아이디로 로그인한 뒤 앱의 무음 로그인이 어떤 힌트로 되는지",
+      "expect": "학교 계정·힌트 없음은 성공, 통합 아이디 힌트는 AADSTS50058",
+      "result": [
+        "로그인✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력)",
+        "무음+학교 계정✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력 없음)",
+        "무음+힌트 없음✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력 없음)",
+        "무음+통합 아이디⛔ 차단 — AADSTS50058 로그인된 계정과 힌트가 다름(무음 로그인 불가)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student02@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "앱 로그인 시작: student02@school2.joowon.me · prompt=none",
+        "앱 로그인 시작: (힌트 없음) · prompt=none",
+        "앱 로그인 시작: student02@id.joowon.me · prompt=none"
+      ],
+      "via": null,
+      "video": "videos/R8.mp4",
+      "poster": "posters/R8.jpg",
+      "duration": 35.0,
+      "recordedAt": "2026-11-13 15:05",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R9",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "SEN 포털 로그인 상태에서 domain_hint=라우팅 도메인",
+      "info": [
+        [
+          "계정",
+          "student02 (SEN 포털)"
+        ]
+      ],
+      "check": "포털에서 라우팅 도메인만 지정해도 비밀번호 없이 학교 B로 가는지",
+      "expect": "성공(학교 B), 비밀번호 입력 없음",
+      "result": [
+        "✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력 없음)"
+      ],
+      "matched": true,
+      "steps": [
+        "SEN 포털 로그인(student02)",
+        "앱 로그인 시작: (힌트 없음) · domain_hint=id.joowon.me",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R9.mp4",
+      "poster": "posters/R9.jpg",
+      "duration": 23.4,
+      "recordedAt": "2026-11-13 14:46",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R12",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "MFA 필수 계정의 통합 아이디",
+      "info": [
+        [
+          "계정",
+          "mfa02@id.joowon.me"
+        ]
+      ],
+      "check": "통합 아이디로 들어와도 SEN 2단계 인증 후 학교 B로 가는지",
+      "expect": "성공(학교 B), SEN 2단계 인증",
+      "result": [
+        "✅ 성공 — mfa02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력, SEN 2단계 인증)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: mfa02@id.joowon.me",
+        "SEN 로그인 화면: 미리 채워진 mfa02 + 비밀번호",
+        "SEN 2단계 인증(인증 앱 6자리)",
+        "도메인 확인 대화상자: 계속"
+      ],
+      "via": null,
+      "video": "videos/R12.mp4",
+      "poster": "posters/R12.jpg",
+      "duration": 25.3,
+      "recordedAt": "2026-11-13 14:46",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R13",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "SEN 아이디 그대로 입력(student01@joowon.me) → 학교 A",
+      "info": [
+        [
+          "계정",
+          "student01@joowon.me"
+        ]
+      ],
+      "check": "SEN 아이디(@senedu.kr 역할)를 그대로 입력해도 학교 계정으로 로그인되는지",
+      "expect": "성공(학교 A)",
+      "result": [
+        "✅ 성공 — student01@school1.joowon.me · 토큰 테넌트 학교 A (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student01@joowon.me 직접 입력",
+        "Microsoft 로그인 화면에 student01@joowon.me 입력",
+        "SEN 로그인 화면: 미리 채워진 student01 + 비밀번호"
+      ],
+      "via": null,
+      "video": "videos/R13.mp4",
+      "poster": "posters/R13.jpg",
+      "duration": 22.8,
+      "recordedAt": "2026-11-13 15:05",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R14",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "SEN 아이디 그대로 입력(student02@joowon.me) → 학교 B",
+      "info": [
+        [
+          "계정",
+          "student02@joowon.me"
+        ]
+      ],
+      "check": "다른 테넌트 학교로도 가는지",
+      "expect": "성공(학교 B)",
+      "result": [
+        "✅ 성공 — student02@school2.joowon.me · 토큰 테넌트 학교 B (SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: student02@joowon.me 직접 입력",
+        "Microsoft 로그인 화면에 student02@joowon.me 입력",
+        "SEN 로그인 화면: 미리 채워진 student02 + 비밀번호"
+      ],
+      "via": null,
+      "video": "videos/R14.mp4",
+      "poster": "posters/R14.jpg",
+      "duration": 23.8,
+      "recordedAt": "2026-11-13 15:05",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "R15",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "겸임교사 SEN 아이디 그대로 입력 → 학교 선택",
+      "info": [
+        [
+          "계정",
+          "multi01@joowon.me"
+        ]
+      ],
+      "check": "SEN 아이디 입력 + 학교 선택",
+      "expect": "학교 B 선택 후 성공",
+      "result": [
+        "✅ 성공 — multi01@school2.joowon.me · 토큰 테넌트 학교 B (학교 선택 학교 B, SEN 비밀번호 입력)"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: multi01@joowon.me 직접 입력",
+        "Microsoft 로그인 화면에 multi01@joowon.me 입력",
+        "SEN 로그인 화면: 미리 채워진 multi01 + 비밀번호",
+        "SEN 학교 선택: 학교 B"
+      ],
+      "via": null,
+      "video": "videos/R15.mp4",
+      "poster": "posters/R15.jpg",
+      "duration": 26.7,
+      "recordedAt": "2026-11-13 15:06",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "RT",
+      "group": "route",
+      "groupName": "④ 통합 아이디(라우팅)",
+      "title": "Teams 웹에 통합 아이디 입력 → 학교 선택",
+      "info": [
+        [
+          "계정",
+          "multi01@id.joowon.me"
+        ],
+        [
+          "앱",
+          "Teams 웹"
+        ]
+      ],
+      "check": "실제 앱에서 학교 선택 후 학교 A Teams가 열리는지",
+      "expect": "Teams 진입(학교 A 계정)",
+      "result": [
+        "✅ Teams 웹 진입 — 계정 표시 multi01@school1.joowon.me"
+      ],
+      "matched": true,
+      "steps": [
+        "Teams 웹 접속",
+        "Microsoft 로그인 화면에 multi01@id.joowon.me 입력",
+        "SEN 로그인 화면: 미리 채워진 multi01 + 비밀번호",
+        "SEN 학교 선택: 학교 A",
+        "로그인 상태 유지: 예",
+        "Teams 웹 화면 진입"
+      ],
+      "via": null,
+      "video": "videos/RT.mp4",
+      "poster": "posters/RT.jpg",
+      "duration": 94.0,
+      "recordedAt": "2026-11-13 15:07",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "S0",
+      "group": "attack",
+      "groupName": "보안 데모: 위험 로그인 탐지·차단",
+      "title": "대조군: 평소 위치에서 로그인",
+      "info": [
+        [
+          "계정",
+          "hack01@school2.joowon.me"
+        ],
+        [
+          "정책",
+          "로그인 위험 시 차단"
+        ]
+      ],
+      "check": "평소 접속에서는 위험 탐지 없이 로그인되는지",
+      "expect": "내 앱 진입",
+      "result": [
+        "✅ 내 앱(My Apps) 진입 — 계정 표시 hack01@school2.joowon.me"
+      ],
+      "matched": true,
+      "steps": [
+        "내 앱(My Apps) 접속",
+        "Microsoft 로그인 화면에 hack01@school2.joowon.me 입력",
+        "SEN 로그인 화면: hack01 입력 + 비밀번호",
+        "로그인 상태 유지: 예",
+        "내 앱(My Apps) 화면 진입"
+      ],
+      "via": "평소 위치(Tor 아님)",
+      "video": "videos/S0.mp4",
+      "poster": "posters/S0.jpg",
+      "duration": 39.3,
+      "recordedAt": "2026-11-13 13:56",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "S1",
+      "group": "attack",
+      "groupName": "보안 데모: 위험 로그인 탐지·차단",
+      "title": "유출 계정으로 Tor 로그인 → 차단",
+      "info": [
+        [
+          "계정",
+          "hack01@school2.joowon.me"
+        ],
+        [
+          "정책",
+          "로그인 위험 시 차단"
+        ]
+      ],
+      "check": "익명 IP 실시간 탐지 → 위험 기반 조건부 액세스 차단",
+      "expect": "차단(AADSTS53003)",
+      "result": [
+        "⛔ 차단 — AADSTS53003 조건부 액세스 정책으로 차단"
+      ],
+      "matched": true,
+      "steps": [
+        "내 앱(My Apps) 접속",
+        "Microsoft 로그인 화면에 hack01@school2.joowon.me 입력",
+        "SEN 로그인 화면: hack01 입력 + 비밀번호",
+        "Microsoft 차단·오류 화면(AADSTS53003)"
+      ],
+      "via": "Tor 출구 IP 185.220.101.19",
+      "video": "videos/S1.mp4",
+      "poster": "posters/S1.jpg",
+      "duration": 58.1,
+      "recordedAt": "2026-11-13 13:57",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "S2",
+      "group": "attack",
+      "groupName": "보안 데모: 위험 로그인 탐지·차단",
+      "title": "Tor 로그인 + SEN 2단계 인증 → 통과",
+      "info": [
+        [
+          "계정",
+          "hack02@school2.joowon.me"
+        ],
+        [
+          "정책",
+          "로그인 위험 시 MFA 요구"
+        ]
+      ],
+      "check": "SEN MFA 클레임이 위험 기반 MFA 요구를 충족해 통과되는지(고위험을 '차단'으로 둬야 하는 이유)",
+      "expect": "내 앱 진입",
+      "result": [
+        "✅ 내 앱(My Apps) 진입 — 계정 표시 hack02@school2.joowon.me"
+      ],
+      "matched": true,
+      "steps": [
+        "내 앱(My Apps) 접속",
+        "Microsoft 로그인 화면에 hack02@school2.joowon.me 입력",
+        "SEN 로그인 화면: hack02 입력 + 비밀번호",
+        "SEN 2단계 인증(인증 앱 6자리)",
+        "로그인 상태 유지: 예",
+        "내 앱(My Apps) 화면 진입"
+      ],
+      "via": "Tor 출구 IP 185.220.101.19",
+      "video": "videos/S2.mp4",
+      "poster": "posters/S2.jpg",
+      "duration": 78.1,
+      "recordedAt": "2026-11-13 13:59",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "S3",
+      "group": "attack",
+      "groupName": "보안 데모: 위험 로그인 탐지·차단",
+      "title": "Tor 로그인, SEN 2단계 인증 없음 → 차단",
+      "info": [
+        [
+          "계정",
+          "hack04@school2.joowon.me"
+        ],
+        [
+          "정책",
+          "로그인 위험 시 MFA 요구"
+        ]
+      ],
+      "check": "MFA를 충족할 수 없는 위험 세션이 차단되는지",
+      "expect": "차단(AADSTS53004)",
+      "result": [
+        "⛔ 차단 — AADSTS53004 위험 세션이라 MFA 등록이 막혀 차단"
+      ],
+      "matched": true,
+      "steps": [
+        "내 앱(My Apps) 접속",
+        "Microsoft 로그인 화면에 hack04@school2.joowon.me 입력",
+        "SEN 로그인 화면: hack04 입력 + 비밀번호",
+        "Microsoft 차단·오류 화면(AADSTS53004)"
+      ],
+      "via": "Tor 출구 IP 185.220.101.19",
+      "video": "videos/S3.mp4",
+      "poster": "posters/S3.jpg",
+      "duration": 60.7,
+      "recordedAt": "2026-11-13 14:00",
+      "timelapse": null,
+      "error": null
+    },
+    {
+      "id": "S4",
+      "group": "attack",
+      "groupName": "보안 데모: 위험 로그인 탐지·차단",
+      "title": "관리자 침해 확인 → 기존 토큰 거부(CAE)·새 로그인 차단",
+      "info": [
+        [
+          "계정",
+          "hack03@school2.joowon.me"
+        ],
+        [
+          "정책",
+          "사용자 위험 높음 시 차단"
+        ]
+      ],
+      "check": "24시간짜리 토큰이 침해 확인 후 수 분 안에 거부되는지",
+      "expect": "토큰 거부(401), 새 로그인 차단(AADSTS530032)",
+      "result": [
+        "⛔ 기존 토큰 거부 — 침해 확인 약 3.2분 뒤 401(CAE)",
+        "⛔ 새 토큰 요청 차단 — AADSTS530032",
+        "⛔ 새 로그인 차단 — AADSTS530032 사용자 위험으로 차단"
+      ],
+      "matched": true,
+      "steps": [
+        "앱 로그인 시작: hack03@school2.joowon.me",
+        "SEN 로그인 화면: hack03 입력 + 비밀번호",
+        "도메인 확인 대화상자: 계속",
+        "CAE 토큰으로 Graph 호출 시작",
+        "관리자 침해 확인(Graph confirmCompromised)",
+        "토큰 거부: 침해 확인 3.2분 뒤",
+        "새 로그인 시도",
+        "Microsoft 차단·오류 화면(AADSTS530032)",
+        "대기 구간 3.1분을 7.7배속으로 표시"
+      ],
+      "via": "평소 위치(Tor 아님)",
+      "video": "videos/S4.mp4",
+      "poster": "posters/S4.jpg",
+      "duration": 72.4,
+      "recordedAt": "2026-11-13 15:12",
+      "timelapse": 7.7,
+      "error": null
+    },
+    {
+      "id": "V1",
+      "group": "portal",
+      "groupName": "보안 데모: 관리 포털 화면",
+      "title": "Entra ID 보호: 위험한 로그인",
+      "info": [
+        [
+          "화면",
+          "Microsoft Entra 관리 센터 › ID 보호 › 위험한 로그인"
+        ]
+      ],
+      "check": "Tor 출구 IP에서 들어온 데모 계정 로그인이 위험한 로그인으로 기록되는지",
+      "expect": "데모 계정의 익명 IP 로그인 표시",
+      "result": [
+        "✅ 데모 계정(보안데모01·04)의 Tor IP 로그인이 '위험 노출'로 기록됨"
+      ],
+      "matched": true,
+      "steps": [
+        "관리 포털 열기: Entra ID 보호: 위험한 로그인",
+        "포털 로딩 33초를 빨리 감기"
+      ],
+      "via": null,
+      "video": "videos/V1.mp4",
+      "poster": "posters/V1.jpg",
+      "duration": 20.6,
+      "recordedAt": "2026-11-13 15:14",
+      "timelapse": 10.9,
+      "error": null
+    },
+    {
+      "id": "V2",
+      "group": "portal",
+      "groupName": "보안 데모: 관리 포털 화면",
+      "title": "Entra ID 보호: 위험 검색",
+      "info": [
+        [
+          "화면",
+          "Microsoft Entra 관리 센터 › ID 보호 › 위험 검색"
+        ]
+      ],
+      "check": "어떤 탐지(익명 IP 주소, 관리자 침해 확인)가 실시간·오프라인으로 기록되는지",
+      "expect": "탐지 유형·위험 수준 표시",
+      "result": [
+        "✅ 익명 IP 주소 탐지(실시간)와 관리자 침해 확인 기록"
+      ],
+      "matched": true,
+      "steps": [
+        "관리 포털 열기: Entra ID 보호: 위험 검색",
+        "포털 로딩 8초를 빨리 감기"
+      ],
+      "via": null,
+      "video": "videos/V2.mp4",
+      "poster": "posters/V2.jpg",
+      "duration": 20.0,
+      "recordedAt": "2026-11-13 15:14",
+      "timelapse": 2.8,
+      "error": null
+    },
+    {
+      "id": "V3",
+      "group": "portal",
+      "groupName": "보안 데모: 관리 포털 화면",
+      "title": "Entra ID 보호: 위험한 사용자",
+      "info": [
+        [
+          "화면",
+          "Microsoft Entra 관리 센터 › ID 보호 › 위험한 사용자"
+        ]
+      ],
+      "check": "탐지가 사용자 위험으로 이어지고, SEN MFA로 해소된 계정은 위험이 남지 않는지",
+      "expect": "데모 계정 위험 상태 표시",
+      "result": [
+        "✅ 데모 계정의 사용자 위험 수준·상태"
+      ],
+      "matched": true,
+      "steps": [
+        "관리 포털 열기: Entra ID 보호: 위험한 사용자",
+        "포털 로딩 10초를 빨리 감기"
+      ],
+      "via": null,
+      "video": "videos/V3.mp4",
+      "poster": "posters/V3.jpg",
+      "duration": 20.2,
+      "recordedAt": "2026-11-13 15:14",
+      "timelapse": 3.4,
+      "error": null
+    },
+    {
+      "id": "V4",
+      "group": "portal",
+      "groupName": "보안 데모: 관리 포털 화면",
+      "title": "조건부 액세스: 데모용 위험 기반 정책",
+      "info": [
+        [
+          "화면",
+          "Microsoft Entra 관리 센터 › 조건부 액세스 › 정책"
+        ]
+      ],
+      "check": "데모 계정 그룹에만 적용한 위험 기반 정책 3개",
+      "expect": "정책 목록 표시",
+      "result": [
+        "✅ 로그인 위험 차단·MFA 요구, 사용자 위험 높음 차단 정책(데모 그룹만 대상)"
+      ],
+      "matched": true,
+      "steps": [
+        "관리 포털 열기: 조건부 액세스: 데모용 위험 기반 정책",
+        "포털 로딩 8초를 빨리 감기"
+      ],
+      "via": null,
+      "video": "videos/V4.mp4",
+      "poster": "posters/V4.jpg",
+      "duration": 20.4,
+      "recordedAt": "2026-11-13 15:17",
+      "timelapse": 2.7,
+      "error": null
+    },
+    {
+      "id": "V5",
+      "group": "portal",
+      "groupName": "보안 데모: 관리 포털 화면",
+      "title": "Microsoft Defender XDR: 인시던트",
+      "info": [
+        [
+          "화면",
+          "Microsoft Defender 포털 › 인시던트"
+        ]
+      ],
+      "check": "Entra ID 보호 알림이 사용자별 인시던트로 묶이는지(A5)",
+      "expect": "익명 IP 인시던트 표시",
+      "result": [
+        "✅ 사용자별 'Anonymous IP address' 인시던트"
+      ],
+      "matched": true,
+      "steps": [
+        "관리 포털 열기: Microsoft Defender XDR: 인시던트",
+        "항목 열기: Anonymous IP address involving one user"
+      ],
+      "via": null,
+      "video": "videos/V5.mp4",
+      "poster": "posters/V5.jpg",
+      "duration": 36.3,
+      "recordedAt": "2026-11-13 15:18",
+      "timelapse": null,
+      "error": null
+    }
+  ],
+  "pending": [
+    {
+      "id": "A2",
+      "group": "sso",
+      "title": "Outlook 웹에서 학교 B 계정 입력",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    },
+    {
+      "id": "P1",
+      "group": "sso",
+      "title": "SEN 포털 링크 → Microsoft 365 웹(학교 A)",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    },
+    {
+      "id": "P2",
+      "group": "sso",
+      "title": "SEN 포털 링크 → Microsoft 365 웹(겸임교사, 학교 B)",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    },
+    {
+      "id": "I1",
+      "group": "sso",
+      "title": "SEN이 먼저 보내는 로그인(IdP 시작) → 학교 A",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    },
+    {
+      "id": "I2",
+      "group": "sso",
+      "title": "SEN이 먼저 보내는 로그인(IdP 시작) → 학교 B",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    },
+    {
+      "id": "R10",
+      "group": "route",
+      "title": "포털 링크(login_hint=통합 아이디) → Microsoft 365 웹",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    },
+    {
+      "id": "RO",
+      "group": "route",
+      "title": "Outlook 웹에 통합 아이디 입력",
+      "reason": "2026-11-13 Microsoft 365 서비스 장애(Outlook·Microsoft 365 웹 접속 불가)로 녹화 보류, 복구 후 녹화 예정"
+    }
+  ]
+}
